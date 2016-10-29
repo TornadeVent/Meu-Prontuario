@@ -1,12 +1,11 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence"
 	version="1.0">
 
-	<persistence-unit name="meuProntuarioPU">
+	<persistence-unit name="meuProntuarioPU"
+		transaction-type="JTA">
 		<jta-data-source>MeuProntuarioDB</jta-data-source>
-		<class>br.com.meuprontuario.modelo.Usuario</class>
 		<properties>
-			<property name="javax.persistence.schema-generation.database.action"
-				value="drop-and-create" />
+			<property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)" />
 		</properties>
 	</persistence-unit>
 </persistence>
